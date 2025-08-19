@@ -11,11 +11,6 @@ class Developer(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-
-
-
-
-
 class Project(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -23,6 +18,9 @@ class Project(models.Model):
     gist_link = models.CharField()
     image = models.ImageField(upload_to="project_pics/")
     developer = models.ManyToManyField(Developer)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 
